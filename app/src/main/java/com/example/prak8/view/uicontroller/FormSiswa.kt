@@ -96,6 +96,20 @@ fun FormSiswa(
                 onValueChange = { txtAlamat = it }
             )
 
+            Spacer(modifier = Modifier.height(20.dp))
+
+            // Tombol Submit
+            Button(
+                modifier = Modifier.fillMaxWidth(1f),
+                enabled = txtAlamat.isNotEmpty(),
+                onClick = {
+                    val listData = mutableListOf(txtNama, txtGender, txtAlamat)
+                    onSubmitButtonClicked(listData)
+                }
+            ) {
+                Text(text = stringResource(id = R.string.submit))
+            }
+
         }
     }
 }
