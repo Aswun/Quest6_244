@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
@@ -59,6 +60,19 @@ fun FormSiswa (
                         thickness = dimensionResource(id = R.dimen.thickness_divider),
                         color = Color.Blue
                     )
+                    Row{
+                        pilihanJk.forEach {
+                            item ->
+                            Row(modifier = Modifier.selectable(
+                                selected = txtGender == item,
+                                onClick = {
+                                    txtGender = item
+                                }
+                            ),
+
+                            )
+                        }
+                    }
                 }
             }
 )
