@@ -1,7 +1,15 @@
 package com.example.prak8.view.uicontroller
 
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.font.FontWeight
 import com.example.prak8.R
 import com.example.prak8.model.Siswa
 
@@ -32,7 +40,33 @@ fun TampilSiswa(
                 )
             )
         }
-    ) {
+    ) { isiRuang ->
 
+        Column(
+            modifier = Modifier.padding(paddingValues = isiRuang),
+            verticalArrangement = Arrangement.SpaceBetween
+        ) {
+
+            Column(
+                modifier = Modifier.padding(all = 16.dp),
+                verticalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+
+                items.forEach { item ->
+                    Column {
+                        Text(
+                            text = item.first.uppercase(),
+                            fontSize = 16.sp
+                        )
+                        Text(
+                            text = item.second,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 16.sp
+                        )
+                    }
+                    Divider(thickness = 1.dp)
+                }
+            }
+        }
     }
 }
